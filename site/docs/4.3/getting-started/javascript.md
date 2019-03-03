@@ -12,6 +12,19 @@ Plugins can be included individually (using Bootstrap's individual `js/dist/*.js
 
 If you use a bundler (Webpack, Rollup...), you can use `/js/dist/*.js` files which are UMD ready.
 
+## Using Bootstrap as a module
+
+We provide a version of Bootstrap built in `ESM` (`bootstrap.esm.js` and `bootstrap.esm.min.js`) which allow you to use Bootstrap as a module in your browser if your [targeted browsers support it](https://caniuse.com/#feat=es6-module).
+
+{% highlight html %}
+<script type="module">
+  import { Tooltip } from 'bootstrap.esm.min.js';
+
+  Array.from(document.querySelectorAll('[data-toggle="tooltip"]'))
+    .forEach((tooltipNode) => new Tooltip(tooltipNode))
+</script>
+{% endhighlight %}
+
 ## Dependencies
 
 Some plugins and CSS components depend on other plugins. If you include plugins individually, make sure to check for these dependencies in the docs.
